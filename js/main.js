@@ -8,7 +8,26 @@ async function getLibraryName() {
   $('.jumbotron h1').text(library.name);
 }
 
+let bookTemplate = $('#templates .bookRow');
+let bookTable = $('#bookTableBody');
+
+function addBookToPage(book) {
+  let newBook =  bookTemplate.clone(true, true);
+  newBook.attr('data-id', book.id);
+  newBook.find('.bookImg').attr('src', book.image_url);
+  newBook.find('.bookTitle').text(book.title);
+  newBook.find('.bookDesc').text(book.description);
+  bookTable.append(newBook);
+}
+
 getLibraryName();
+
+async function getBooks() {
+  let books = await req.getBooks();
+  books.forEach((book) => {
+    addBookToPage(book);
+  });
+}
 
 async function testAPI(){
   let book1 = await req.createBook({
