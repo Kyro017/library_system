@@ -1,0 +1,11 @@
+@import 'base';
+
+#books{
+  table {
+    tr {
+      img{
+        max-height: 100px;
+      }
+    }
+  }
+}

@@ -5,77 +5,79 @@
 	<meta charset="utf-8">
 	<title>New Project Template</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 	<link href="css/style.min.css" rel="stylesheet">
 </head>
 
 <body>
 	<main role="main">
 		<div class="container">
-      <div class="jumbotron bg-dark">
-        <h1 class="text-light">
-          Array Starter Template using BootStrap and JQuery!
-        </h1>
-      </div>
+			<div class="jumbotron bg-dark">
+				<h1 class="text-light">
 
-      <div class="row">
+				</h1>
+			</div>
 
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-header">Card Header 1</div>
-            <div class="card-body">
-              <h5 class="card-title">Card Title 1</h5>
-              <div class="card-text">
-                Whatever this means, it must be pretty cool, neat!
-                <p>Hello, world!</p>
-              </div>
-              <button class="btn btn-success">Success!</button>
-            </div>
-          </div>
-        </div>
+			<ul class="nav nav-tabs" id="myTab" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link active" id="books-tab" data-toggle="tab" href="#books" role="tab" aria-controls="books" aria-selected="true">Books</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="borrowers-tab" data-toggle="tab" href="#borrowers" role="tab" aria-controls="borrowers" aria-selected="false">Borrowers</a>
+				</li>
+			</ul>
+			<div class="tab-content" id="myTabContent">
+				<div class="tab-pane fade show active" id="books" role="tabpanel" aria-labelledby="home-tab">
+					<table class="table table-striped table-dark">
+						<thead>
+							<tr>
+								<th scope="col">Image</th>
+								<th scope="col">Title</th>
+								<th scope="col">Description</th>
+								<th scope="col">Borrowed by</th>
+							</tr>
+						</thead>
+						<tbody id='bookTableBody'>
 
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-header">Card Header 2</div>
-            <div class="card-body">
-              <h5 class="card-title">Card Title 2</h5>
-              <div class="card-text">
-                Whatever this means, it must be pretty cool, neat!
-                <p>Hello, world!</p>
-              </div>
-              <button class="btn btn-success">Success!</button>
-            </div>
-          </div>
-        </div>
+						</tbody>
+					</table>
+				</div>
 
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-header">Card Header 3</div>
-            <div class="card-body">
-              <h5 class="card-title">Card Title 3</h5>
-              <div class="card-text">
-                Whatever this means, it must be pretty cool, neat!
-                <p>Hello, world!</p>
-              </div>
-              <button class="btn btn-success">Success!</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
+				<div class="tab-pane fade" id="borrowers" role="tabpanel" aria-labelledby="borrowers-tab">
+					Dis is where da borrwers go.
+				</div>
+			</div>
 
 
 
 
-    </div>
+
+		</div>
 	</main>
 
+	<div id="templates" class="d-none">
+		<table>
+			<tr class="bookRow">
+				<th scope="row"><img class="img-fluid img-thumbnail book-img" src="https://vignette.wikia.nocookie.net/starwars/images/d/dc/MaulLockdownCover.jpg/revision/latest?cb=20130427064638"></th>
+				<td class="bookTitle">Maul Lockdown</td>
+				<td class="bookDesc">StarWars Book</td>
+				<td>
+					<select class="" name="">
+						<option value="">Available</option>
+						<option class="borrowerOption">John Wick</option>
+						<option class="borrowerOption">Bill Nye</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+	</div>
 
 
-  <!-- Necessary Scripts... Keep these at the bottom of your <body> tag :) -->
-  <!-- Grunt's livereload script --><script src="//localhost:35729/livereload.js"></script>
+	<!-- Necessary Scripts... Keep these at the bottom of your <body> tag :) -->
+	<!-- Grunt's livereload script --><script src="//localhost:35729/livereload.js"></script>
 	<!-- JQuery min --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!-- BootStrap JS min --><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.bundle.min.js" integrity="sha384-lZmvU/TzxoIQIOD9yQDEpvxp6wEU32Fy0ckUgOH4EIlMOCdR823rg4+3gWRwnX1M" crossorigin="anonymous"></script>
+	<!-- BootStrap JS min --><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.bundle.min.js" integrity="sha384-lZmvU/TzxoIQIOD9yQDEpvxp6wEU32Fy0ckUgOH4EIlMOCdR823rg4+3gWRwnX1M" crossorigin="anonymous"></script>
+	<!-- Custom JS for this project --><script src="js/request.js"></script>
 	<!-- Custom JS for this project --><script src="js/main.js"></script>
 </body>
 
