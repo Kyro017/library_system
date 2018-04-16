@@ -18,51 +18,24 @@
         </h1>
       </div>
 
-      <div class="row">
+			<ul class="nav nav-tabs" id="myTab" role="tablist">
+				<li class="nav-item">
+					<a class="nav-link active" id="books-tab" data-toggle="tab" href="#books" role="tab" aria-controls="books" aria-selected="true">Books</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" id="borrowers-tab" data-toggle="tab" href="#borrowers" role="tab" aria-controls="borrowers" aria-selected="false">Borrowers</a>
+				</li>
+			</ul>
+			<div class="tab-content" id="myTabContent">
+				<div class="tab-pane fade show active" id="books" role="tabpanel" aria-labelledby="home-tab">
+					Dis is where da books go.
+				</div>
 
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-header">Card Header 1</div>
-            <div class="card-body">
-              <h5 class="card-title">Card Title 1</h5>
-              <div class="card-text">
-                Whatever this means, it must be pretty cool, neat!
-                <p>Hello, world!</p>
-              </div>
-              <button class="btn btn-success">Success!</button>
-            </div>
-          </div>
-        </div>
+				<div class="tab-pane fade" id="borrowers" role="tabpanel" aria-labelledby="borrowers-tab">
+					Dis is where da borrwers go.
+				</div>
+			</div>
 
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-header">Card Header 2</div>
-            <div class="card-body">
-              <h5 class="card-title">Card Title 2</h5>
-              <div class="card-text">
-                Whatever this means, it must be pretty cool, neat!
-                <p>Hello, world!</p>
-              </div>
-              <button class="btn btn-success">Success!</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-header">Card Header 3</div>
-            <div class="card-body">
-              <h5 class="card-title">Card Title 3</h5>
-              <div class="card-text">
-                Whatever this means, it must be pretty cool, neat!
-                <p>Hello, world!</p>
-              </div>
-              <button class="btn btn-success">Success!</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
 
 
 
@@ -76,6 +49,7 @@
   <!-- Grunt's livereload script --><script src="//localhost:35729/livereload.js"></script>
 	<!-- JQuery min --><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- BootStrap JS min --><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.bundle.min.js" integrity="sha384-lZmvU/TzxoIQIOD9yQDEpvxp6wEU32Fy0ckUgOH4EIlMOCdR823rg4+3gWRwnX1M" crossorigin="anonymous"></script>
+	<!-- Custom JS for this project --><script src="js/request.js"></script>
 	<!-- Custom JS for this project --><script src="js/main.js"></script>
 </body>
 
