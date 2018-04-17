@@ -8,6 +8,13 @@ async function getLibraryName() {
   $('.jumbotron h1').text(library.name);
 }
 
+getLibraryName();
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////         THIS IS FOR THE BOOKS          ////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
 let bookTemplate = $('#templates .bookRow');
 let bookTable = $('#bookTableBody');
 
@@ -20,7 +27,6 @@ function addBookToPage(book) {
   bookTable.append(newBook);
 }
 
-getLibraryName();
 
 async function getBooks() {
   let books = await req.getBooks();
@@ -90,3 +96,70 @@ async function testAPI(){
   console.log("After the get all the books request comes back");
   console.log(books);
 }
+
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////         THIS IS FOR THE BORROWERS      ////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+
+let borrowerTemplate = $('#templates .borrowerRow');
+let borrowerTable = $('#borrowerTableBody');
+
+function addBorrowerToPage(borrower) {
+  let newBorrower =  borrowerTemplate.clone(true, true);
+  newBorrower.attr('data-id', borrower.id);
+  newBorrower.find('.borrowerFirstName').text(borrower.firstname);
+  newBorrower.find('.borrowerLastName').text(borrower.lastname);
+  borrowerTable.append(newBorrower);
+}
+
+async function getBorrowers() {
+  let borrowers = await req.getBorrowers();
+  borrowers.forEach((borrowers) => {
+    addBorrowerToPage(borrowers);
+  });
+}
+
+getBorrowers();
+
+
+async function deleteBorrower(borrowerRow) {
+  let borrowerID = borrowerRow.attr('data-id');
+  await req.deleteBorrower({id: borrowerID});
+  borrowerRow.fadeOut(700, () => borrowerRow.remove());
+}
+
+function deleteAllBorrowers() {
+  $('.borrowerRow').each(function () {
+    deleteBorrower($(this));
+  });
+}
+
+$('.deleteBorrower').click(async function() {
+  let borrowerRow = $(this).parents('.borrowerRow');
+  deleteBorrower(borrowerRow);
+});
+
+$('#addBorrowerForm').on('submit', async function(event) {
+  event.preventDefault();
+
+  // Grabs borrower data and creates a new borrower object
+  let newBorrower = {
+    firstname: event.target.addBorrowerFirstName.value,
+    lastname: event.target.addBorrowerLastName.value,
+  };
+
+  // Create the borrower on the server
+  newBorrower = await req.createBorrower(newBorrower);
+
+  // Add Borrower to our table
+  addBorrowerToPage(newBorrower);
+
+  // Resets the input field
+  event.target.reset();
+
+  // closes out the Modal
+  $('#addBorrowerModal').modal('hide');
+
+});

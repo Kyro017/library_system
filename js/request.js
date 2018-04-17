@@ -31,7 +31,7 @@ class Requests {
   }
 
   getLibrary(){
-    return this.ajaxCall("GET", `libraries/${this.libraryID}`)
+    return this.ajaxCall("GET", `libraries/${this.libraryID}`);
   }
 
   // THESE ARE FOR THE BOOKS ///////////////////////
@@ -63,10 +63,10 @@ class Requests {
   }
 
   updateBorrower(borrower){
-    return this.ajaxCall("PUT", `libraries/${this.libraryID}/books/${borrower.id}`, {borrower});
+    return this.ajaxCall("PUT", `libraries/${this.libraryID}/borrowers/${borrower.id}`, {borrower});
   }
 
   deleteBorrower(borrower){
-    return this.ajaxCall("DELETE", `libraries/${this.libraryID}/books/${borrower.id}`);
+    return this.ajaxCall("DELETE", `libraries/${this.libraryID}/borrowers/${borrower.id}`);
   }
 }
