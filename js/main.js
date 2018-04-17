@@ -29,6 +29,26 @@ async function getBooks() {
   });
 }
 
+getBooks();
+
+
+async function deleteBook(bookRow) {
+  let bookID = bookRow.attr('data-id');
+  await req.deleteBook({id: bookID});
+  bookRow.fadeOut(700, () => bookRow.remove());
+}
+
+function deleteAllBooks() {
+  $('.bookRow').each(function () {
+    deleteBook($(this));
+  });
+}
+
+$('.deleteBook').click(async function() {
+  let bookRow = $(this).parents('.bookRow');
+  deleteBook(bookRow);
+});
+
 async function testAPI(){
   let book1 = await req.createBook({
     title: "Maul Lockdown",
