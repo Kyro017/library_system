@@ -14,7 +14,7 @@ let bookTable = $('#bookTableBody');
 function addBookToPage(book) {
   let newBook =  bookTemplate.clone(true, true);
   newBook.attr('data-id', book.id);
-  newBook.find('.bookImg').attr('src', book.image_url);
+  newBook.find('.book-img').attr('src', book.image_url);
   newBook.find('.bookTitle').text(book.title);
   newBook.find('.bookDesc').text(book.description);
   bookTable.append(newBook);
@@ -47,6 +47,30 @@ function deleteAllBooks() {
 $('.deleteBook').click(async function() {
   let bookRow = $(this).parents('.bookRow');
   deleteBook(bookRow);
+});
+
+$('#addBookForm').on('submit', async function(event) {
+  event.preventDefault();
+
+  // Grabs book data and creates a new book object
+  let newBook = {
+    title: event.target.addBookTitle.value,
+    description: event.target.addBookDescription.value,
+    image_url: event.target.addBookImageUrl.value,
+  };
+
+  // Create the book on the server
+  newBook = await req.createBook(newBook);
+
+  // Add Book to our table
+  addBookToPage(newBook);
+
+  // Resets the input field
+  event.target.reset();
+
+  // closes out the Modal
+  $('#addBookModal').modal('hide');
+
 });
 
 async function testAPI(){

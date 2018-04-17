@@ -20,14 +20,16 @@
 
 			<ul class="nav nav-tabs" id="myTab" role="tablist">
 				<li class="nav-item">
-					<a class="nav-link active" id="books-tab" data-toggle="tab" href="#books" role="tab" aria-controls="books" aria-selected="true">Books
-						<button class="addBook btn btn-small btn-success px-2 py-0 ml-2">
+					<a class="nav-link active" id="books-tab" data-toggle="tab" href="#books" role="tab" aria-controls="books" aria-selected="true">
+						Books
+						<button class="addBook btn btn-small btn-success px-2 py-0 ml-2" data-toggle="modal" data-target="#addBookModal">
 							&plus;
 						</button>
 					</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" id="borrowers-tab" data-toggle="tab" href="#borrowers" role="tab" aria-controls="borrowers" aria-selected="false">Borrowers
+					<a class="nav-link" id="borrowers-tab" data-toggle="tab" href="#borrowers" role="tab" aria-controls="borrowers" aria-selected="false">
+						Borrowers
 						<button class="addBorrowers btn btn-small btn-success px-2 py-0 ml-3">
 							&plus;
 						</button>
@@ -90,7 +92,7 @@
 
 
 	<!-- Modal -->
-	<div class="modal fade" id="addbookModal" tabindex="-1" role="dialog" aria-labelledby="addBookModalLabel" aria-hidden="true">
+	<div class="modal fade" id="addBookModal" tabindex="-1" role="dialog" aria-labelledby="addBookModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -99,17 +101,29 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<div class="modal-body">
-					
-
-					<h1>WE ARE ADDING BOOKS!!!!</h1>
+				<form id="addBookForm">
+					<div class="modal-body">
 
 
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
-				</div>
+						<div class="form-group">
+							<input type="text" class="form-control" name="addBookTitle" placeholder="Enter book title">
+						</div>
+
+						<div class="form-group">
+							<textarea class="form-control" name="addBookDescription" placeholder="Enter book description" rows="3"></textarea>
+						</div>
+
+						<div class="form-group">
+							<input type="text" class="form-control" name="addBookImageUrl" placeholder="Enter Image URL">
+						</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<input type="submit" id="submitBook" class="btn btn-primary" value="Submit Book">
+					</div>
+
+				</form>
 			</div>
 		</div>
 	</div>
