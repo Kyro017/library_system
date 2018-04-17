@@ -31,7 +31,7 @@ class Requests {
   }
 
   getLibrary(){
-    return this.ajaxCall("GET", `libraries/${this.libraryID}`);
+    return this.ajaxCall("GET", `libraries/${this.libraryID}`)
   }
 
   // THESE ARE FOR THE BOOKS ///////////////////////

@@ -18,5 +18,8 @@
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-postcss": "latest"
+  },
+  "dependencies": {
+    "npm": "^5.8.0"
   }
 }
