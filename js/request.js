@@ -62,6 +62,10 @@ class Requests {
     return this.ajaxCall("GET", `libraries/${this.libraryID}/borrowers`);
   }
 
+  getBorrower(borrowerID){
+    return this.ajaxCall("GET", `libraries/${this.libraryID}/borrowers/${borrowerID}`);
+  }
+
   updateBorrower(borrower){
     return this.ajaxCall("PUT", `libraries/${this.libraryID}/borrowers/${borrower.id}`, {borrower});
   }

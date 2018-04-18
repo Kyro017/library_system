@@ -18,18 +18,27 @@ async function getLibraryName() {
 
 getLibraryName();
 
-////////////////////////////////////////////////////////////////////////////////
-////////////////////   THIS GETS ALL THE DATA ON THE PAGE   ////////////////////
-////////////////////////////////////////////////////////////////////////////////
+
+function createdAtSort(a, b) {
+  return(new Date(a.created_at) - new Date(b.created_at));
+}
+
+function titleSort(a, b) {
+  if(a.title.toLowerCase() < b.title.toLowerCase()) return -1;
+  if(a.title.toLowerCase() > b.title.toLowerCase()) return 1;
+  return 0;
+}
 
 async function getData() {
 
   let borrowers = await req.getBorrowers();
+  borrowers.sort(createdAtSort);
   borrowers.forEach((borrowers) => {
     addBorrowerToPage(borrowers);
   });
 
   let books = await req.getBooks();
+  books.sort(titleSort);
   books.forEach((book) => {
     addBookToPage(book);
   });
@@ -54,7 +63,6 @@ function addBookToPage(book) {
   }
   bookTable.append(newBook);
 }
-
 
 
 
