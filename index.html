@@ -76,7 +76,7 @@
 	</main>
 
 
-<!-- ////////////////////  TEMPLATES  //////////////////// -->
+	<!-- ////////////////////  TEMPLATES  //////////////////// -->
 	<!-- This is for the Books -->
 	<div id="templates" class="d-none">
 		<table>
@@ -85,10 +85,8 @@
 				<td class="bookTitle">Maul Lockdown</td>
 				<td class="bookDesc">StarWars Book</td>
 				<td>
-					<select class="" name="">
+					<select class="bookBorrower" name="">
 						<option value="">Available</option>
-						<option class="borrowerOption">John Wick</option>
-						<option class="borrowerOption">Bill Nye</option>
 					</select>
 				</td>
 				<td>
@@ -111,12 +109,17 @@
 				</td>
 			</tr>
 		</table>
+
+
+
+		<option class="borrowerOption" value="">Firstname Lastname</option>
+
 	</div>
 
 
 
 
-<!-- /////////////////  MODALS  ///////////////// -->
+	<!-- /////////////////  MODALS  ///////////////// -->
 	<!--  Book Modal -->
 	<div class="modal fade" id="addBookModal" tabindex="-1" role="dialog" aria-labelledby="addBookModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
